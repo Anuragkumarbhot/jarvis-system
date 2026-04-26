@@ -8,3 +8,5 @@ key.pem
 .env
 models/
 *.gguf
+models/
+*.gguf
