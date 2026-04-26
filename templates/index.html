@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Jarvis Monitor</title>
+
+<style>
+
+body {
+    font-family: Arial;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.card {
+    background: #222;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+    font-size: 22px;
+}
+
+</style>
+
+<script>
+
+function update() {
+
+fetch("/system")
+
+.then(response => response.json())
+
+.then(data => {
+
+document.getElementById("cpu").innerText =
+"CPU: " + data.cpu + "%";
+
+document.getElementById("ram").innerText =
+"RAM: " + data.ram_used + " / " + data.ram_total + " GB";
+
+document.getElementById("battery").innerText =
+"Battery: " + data.battery + "%";
+
+});
+
+}
+
+setInterval(update, 2000);
+
+</script>
+
+</head>
+
+<body onload="update()">
+
+<h1>Jarvis Live Monitor</h1>
+
+<div class="card" id="cpu">
+CPU
+</div>
+
+<div class="card" id="ram">
+RAM
+</div>
+
+<div class="card" id="battery">
+Battery
+</div>
+
+</body>
+
+</html>

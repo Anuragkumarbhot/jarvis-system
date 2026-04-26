@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jarvis Dashboard</title>
+</head>
+
+<body style="background:black;color:white;text-align:center">
+
+<h1>Jarvis Control Panel</h1>
+
+<br>
+
+<button onclick="send('relay1','on')">
+Relay ON
+</button>
+
+<button onclick="send('relay1','off')">
+Relay OFF
+</button>
+
+<br><br>
+
+<a href="/camera">
+Open Camera
+</a>
+
+<br><br>
+
+<a href="/logout">
+Logout
+</a>
+
+<script>
+
+function send(device,state){
+
+fetch(`/iot/${device}/${state}`)
+
+}
+
+</script>
+
+</body>
+</html>
+
