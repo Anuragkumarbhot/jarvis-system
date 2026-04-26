@@ -1,9 +1,13 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-echo "Starting Jarvis..."
+echo "Starting Jarvis Secure Server..."
 
-pkill -9 -f dashboard.py
+cd ~/assistant
 
-sleep 2
+gunicorn \
+  --workers 2 \
+  --bind 0.0.0.0:5000 \
+  --certfile certs/cert.pem \
+  --keyfile certs/key.pem \
+  dashboard:app
 
-python ~/assistant/dashboard.py
