@@ -6,4 +6,5 @@ backup/
 cert.pem
 key.pem
 .env
-
+models/
+*.gguf
